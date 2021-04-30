@@ -10,7 +10,7 @@ Hey guys! Today we are going to learn about how to evaluate **math functions** i
 
 `math_expression` is a very simple library that is easy to use as shown below.
 
-```
+```dart
 Parser p = Parser();
 Expression exp = p.parse(your_expression_here);// expression like '2+2-1/2'.
 double val = exp.evaluate(EvaluationType.REAL, null);
@@ -23,7 +23,7 @@ Lets begin!!!
 ## Step 1 :  Install Packages
 
 Place the below dependencies in your `pubspec.yaml` file and run `flutter pub get`
-```
+```dart
   
   math_expressions: version_here
   
@@ -33,7 +33,7 @@ Place the below dependencies in your `pubspec.yaml` file and run `flutter pub ge
 
 Create a new page as `simple_calculator.dart` which will be a stateful widget. This will be the default page of our app.
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
@@ -72,7 +72,7 @@ For creating the UI we will divide the UI in 2 parts. The 1st part to view the e
 
 For upper part which will hold the expressions and values :
 
-```
+```dart
 _buildExpression() {
     return Expanded(
       child: Padding(
@@ -95,7 +95,7 @@ _buildExpression() {
 
 For the lower part of the screen, it will hold the UI of the keypad.
 
-```
+```dart
 _buildKeyPad() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.6,
@@ -163,7 +163,7 @@ _buildKeyPad() {
 
 We have created a simple method which will be called to build the numeric button.
 
-```
+```dart
   _buildKeyButton(String text, bool isSpecial) {
     return Expanded(
       child: InkWell(
@@ -206,7 +206,7 @@ We have created a few other methods as below to make the add validations and mak
 
 `_buildConcatenateFunction()` method is used to concatenate the numbers and operations with each other.
 
-```
+```dart
 _buildConcatenateFunction(String text) {
     setState(() {
       value = value + text;
@@ -216,7 +216,7 @@ _buildConcatenateFunction(String text) {
 
 `_isOperatorApplicable()` is used to validate if the operator can be applied to the expression. For example to avoid the case  `2++2`.
 
-```
+```dart
 bool _isOperatorApplicable() {
     if (value.length > 0 &&
         value[value.length-1] != '+' &&
@@ -234,7 +234,7 @@ bool _isOperatorApplicable() {
 
 `_isDotOperatorApplicable()` is used to validate if there are no multiple dot operators used together.
 
-```
+```dart
  bool _isDotOperatorApplicable() {
     if(lastOperatorUsed=='=' && value.contains('.')){
       return false;
@@ -248,7 +248,7 @@ bool _isOperatorApplicable() {
 
  `_handleClick()` is used to handle click operations on operators like `+` `-` `x` `/` `%` `<` `c` `.` `=`.
 
- ```
+ ```dart
 _handleClick(String text) {
     switch (text) {
       case "<":
@@ -279,7 +279,7 @@ _handleClick(String text) {
 
 `math_expression` is a very simple library that is easy to use. We have made the `evaluate()` method to evaluate the expression.
 
-```
+```dart
  void _evaluate() {
     try {
       exp = p.parse(value.replaceAll('x', '*'));//For multiplication in UI we show 'x' but for operations we use '*'
