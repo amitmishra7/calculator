@@ -43,29 +43,29 @@ class SimpleCalculatorPage extends StatefulWidget {
 }
 
 class _SimpleCalculatorPageState extends State<SimpleCalculatorPage> {
-  String value = ''; // to hold the expression or its value
-  String lastOperatorUsed = ''; // to identify last operation performed
-  Parser p = Parser();
-  Expression exp;
+String value = ''; // to hold the expression or its value
+String lastOperatorUsed = ''; // to identify last operation performed
+Parser p = Parser();
+Expression exp;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _buildBody(),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+  body: _buildBody(),
+);
+}
 
-  _buildBody() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          _buildExpression(),
-          _buildKeyPad(),
-        ],
-      ),
-    );
-  }
+_buildBody() {
+return Center(
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      _buildExpression(),
+      _buildKeyPad(),
+    ],
+  ),
+);
+}
 ```
 
 For creating the UI we will divide the UI in 2 parts. The 1st part to view the expression and 2nd part with the keypad.
